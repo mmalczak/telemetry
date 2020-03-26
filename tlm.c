@@ -156,8 +156,8 @@ int main(int argc, char *argv[])
         numel = min(tlm.data_count, TLM_BUFFER_SIZE);
 
         for (i = 0; i<numel; i++){
-          fprintf(fp, "%d, %d, %d, %d \n",
-                          tlm.data[i].theta0, tlm.data[i].theta1, tlm.data[i].theta2,tlm.data[i].theta3);
+          fprintf(fp, "%ld, %ld\n",
+                          tlm.data[i].theta0, tlm.data[i].theta1);
         }
 
     }
