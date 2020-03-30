@@ -175,12 +175,20 @@ int main(int argc, char *argv[])
           printf("%s\t\t","ts_sec");
           printf("%s\t","ts_usec");
           for (i = 0; labelsDef[i]; i++)
+          {
             printf("%s\t", labelsDef[i]);
+            int j;
+            if(!strcmp("theta", labelsDef[i])) for(j=0; j<deg; j++)printf("\t");
+            if(!strcmp("R", labelsDef[i])) for(j=0; j<d_R+1; j++)printf("\t");
+            if(!strcmp("S", labelsDef[i])) for(j=0; j<d_S+1; j++)printf("\t");
+            if(!strcmp("T", labelsDef[i])) for(j=0; j<d_T+1; j++)printf("\t");
+            if(!strcmp("D", labelsDef[i])) for(j=0; j<d_D+1; j++)printf("\t");
+          }
           printf("\n");
 
           for (i = 0; i<numel; i++) {
             printf("%d\t%d\t", tlm.data[i].ts_sec, tlm.data[i].ts_usec);
-            print_sample(tlm.data + i, "\t");
+            print_sample(tlm.data + i, "\t", 1);
             printf("\n");
           }
 
@@ -197,7 +205,7 @@ int main(int argc, char *argv[])
 
           for (i = 0; i<numel; i++){
             printf("%d;%d;", tlm.data[i].ts_sec, tlm.data[i].ts_usec);
-            print_sample(tlm.data + i, ";");
+            print_sample(tlm.data + i, ";", 0);
             printf("\n");
           }
 
