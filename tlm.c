@@ -196,8 +196,8 @@ int main(int argc, char *argv[])
           }
 
           for (i = 0; i<numel; i++){
-            printf("%d,%d,", tlm.data[i].ts_sec, tlm.data[i].ts_usec);
-            print_sample(tlm.data + i, ",");
+            printf("%d;%d;", tlm.data[i].ts_sec, tlm.data[i].ts_usec);
+            print_sample(tlm.data + i, ";");
             printf("\n");
           }
 
