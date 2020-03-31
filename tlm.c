@@ -55,7 +55,7 @@ int help(char *appName)
     "\nExit status:\n"                                    \
       "-lost_frames\tif OK,\n"                            \
       ">0\t\tif problems,\n"                              \
-    "\n\tReport bugs to michal.getka[at]gmail.com\n", appName, DEVICE_NAME, DEVICE_NAME);
+    "\n\tReport bugs to michal.getka[at]gmail.com\n", appName, DEVICE_NAME);
 
   exit(0);
 
@@ -187,7 +187,7 @@ int main(int argc, char *argv[])
           printf("\n");
 
           for (i = 0; i<numel; i++) {
-            printf("%d\t%d\t", tlm.data[i].ts_sec, tlm.data[i].ts_usec);
+            printf("%lld\t%d\t", tlm.data[i].ts_sec, tlm.data[i].ts_usec);
             print_sample(tlm.data + i, "\t", 1);
             printf("\n");
           }
@@ -204,7 +204,7 @@ int main(int argc, char *argv[])
           }
 
           for (i = 0; i<numel; i++){
-            printf("%d;%d;", tlm.data[i].ts_sec, tlm.data[i].ts_usec);
+            printf("%lld;%d;", tlm.data[i].ts_sec, tlm.data[i].ts_usec);
             print_sample(tlm.data + i, ";", 0);
             printf("\n");
           }
