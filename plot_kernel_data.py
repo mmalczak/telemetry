@@ -69,15 +69,15 @@ plt.legend(loc='upper left')
 plt.subplot(4, 1, 2)
 axes = plt.gca()
 axes.set_ylim([0,5000000])
-plt.plot(time, freq, label='freq');
-plt.plot(time, freq_next, label='freq_next');
+plt.plot(time, freq, label='u');
+plt.plot(time, freq_next, label='v');
 plt.grid()
 plt.legend(loc='upper left')
 
 plt.subplot(4, 1, 3)
 plt.plot(time, theta);
 plt.grid()
-plt.legend(["theta[0]", "theta[1]"], loc='upper left')
+plt.legend(["theta[0](a1)", "theta[1](b0)"], loc='upper left')
 
 plt.subplot(4, 1, 4)
 plt.plot(time, P);
