@@ -11,6 +11,9 @@ def get_array(x):
     x = [float(el) for el in x]
     return x
 
+x_beg = 00;
+x_end = 100;
+
 time = [];
 load_est = []
 load = []
@@ -56,32 +59,48 @@ load= dsp.lfilter(b, a, load);
 #plt.grid()
 #plt.legend(loc='upper left')
 
+
+N = len(time);
+x_beg = int(N*x_beg/100);
+x_end = int(N*x_end/100);
+
 plt.figure(1)
-plt.subplot(4, 1, 1)
+sp = plt.subplot(4, 1, 1)
+sp.set_title("Output")
 axes = plt.gca()
 axes.set_ylim([0,200])
-plt.plot(time, load, label='load');
-plt.plot(time, load_est, label='load_est');
-plt.plot(time, uc, label='uc');
+plt.plot(time[x_beg:x_end], load[x_beg:x_end], label='load');
+plt.plot(time[x_beg:x_end], load_est[x_beg:x_end], label='load_est');
+plt.plot(time[x_beg:x_end], uc[x_beg:x_end], label='uc');
 plt.grid()
 plt.legend(loc='upper left')
 
-plt.subplot(4, 1, 2)
+sp = plt.subplot(4, 1, 2)
+sp.set_title("Input")
 axes = plt.gca()
 axes.set_ylim([0,5000000])
-plt.plot(time, freq, label='u');
-plt.plot(time, freq_next, label='v');
+plt.plot(time[x_beg:x_end], freq[x_beg:x_end], label='u');
+plt.plot(time[x_beg:x_end], freq_next[x_beg:x_end], label='v');
 plt.grid()
 plt.legend(loc='upper left')
 
-plt.subplot(4, 1, 3)
-plt.plot(time, theta);
+sp = plt.subplot(4, 1, 3)
+sp.set_title("Estimated parameters")
+plt.plot(time[x_beg:x_end], theta[x_beg:x_end]);
 plt.grid()
-plt.legend(["theta[0](a1)", "theta[1](b0)"], loc='upper left')
+leg = []
+for i in range(len(theta)):
+    leg.append("theta["+str(i)+"]")
+plt.legend(leg, loc='upper left')
 
-plt.subplot(4, 1, 4)
-plt.plot(time, P);
-plt.legend(["P[0]", "P[1]","P[2]","P[3]"], loc='upper left')
+sp = plt.subplot(4, 1, 4)
+sp.set_title("Covariance matrix")
+plt.plot(time[x_beg:x_end], P[x_beg:x_end]);
+#leg = []
+#for i in range(len(theta)):
+#    leg.append("P["+str(i)+"]")
+#plt.legend(leg, loc='upper left')
+
 plt.grid()
 plt.show()
 
