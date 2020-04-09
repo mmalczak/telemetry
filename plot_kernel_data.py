@@ -69,8 +69,8 @@ sp = plt.subplot(4, 1, 1)
 sp.set_title("Output")
 axes = plt.gca()
 axes.set_ylim([0,200])
-plt.plot(time[x_beg:x_end], load[x_beg:x_end], label='load');
-plt.plot(time[x_beg:x_end], load_est[x_beg:x_end], label='load_est');
+plt.plot(time[x_beg:x_end], load[x_beg:x_end], label='y');
+plt.plot(time[x_beg:x_end], load_est[x_beg:x_end], label='y_est');
 plt.plot(time[x_beg:x_end], uc[x_beg:x_end], label='uc');
 plt.grid()
 plt.legend(loc='upper left')
