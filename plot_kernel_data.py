@@ -40,7 +40,7 @@ print(statistics.mean(load));
 print(statistics.mean(load_est));
 
 a = np.array([1])
-l = 10;
+l = 1;
 b = np.ones(l, dtype=float)/l
 a.astype(float)
 load_est = dsp.lfilter(b, a, load_est);
