@@ -65,26 +65,36 @@ x_beg = int(N*x_beg/100);
 x_end = int(N*x_end/100);
 
 plt.figure(1)
-sp = plt.subplot(4, 1, 1)
+sp = plt.subplot(5, 1, 1)
 sp.set_title("Output")
 axes = plt.gca()
 axes.set_ylim([0,200])
 plt.plot(time[x_beg:x_end], load[x_beg:x_end], label='y');
-plt.plot(time[x_beg:x_end], load_est[x_beg:x_end], label='y_est');
+#plt.plot(time[x_beg:x_end], load_est[x_beg:x_end], label='y_est');
 plt.plot(time[x_beg:x_end], uc[x_beg:x_end], label='uc');
 plt.grid()
 plt.legend(loc='upper left')
 
-sp = plt.subplot(4, 1, 2)
+sp = plt.subplot(5, 1, 2)
 sp.set_title("Input")
 axes = plt.gca()
-axes.set_ylim([0,5000000])
+#axes.set_ylim([0,5000000])
 plt.plot(time[x_beg:x_end], freq[x_beg:x_end], label='u');
 plt.plot(time[x_beg:x_end], freq_next[x_beg:x_end], label='v');
 plt.grid()
 plt.legend(loc='upper left')
 
-sp = plt.subplot(4, 1, 3)
+sp = plt.subplot(5, 1, 3)
+sp.set_title("Input scaled")
+axes = plt.gca()
+axes.set_ylim([0,5000000])
+plt.plot(time[x_beg:x_end], freq_next[x_beg:x_end], label='v');
+plt.plot(time[x_beg:x_end], freq[x_beg:x_end], label='u');
+plt.grid()
+plt.legend(loc='upper left')
+
+
+sp = plt.subplot(5, 1, 4)
 sp.set_title("Estimated parameters")
 plt.plot(time[x_beg:x_end], theta[x_beg:x_end]);
 plt.grid()
@@ -93,7 +103,7 @@ for i in range(len(theta)):
     leg.append("theta["+str(i)+"]")
 plt.legend(leg, loc='upper left')
 
-sp = plt.subplot(4, 1, 4)
+sp = plt.subplot(5, 1, 5)
 sp.set_title("Covariance matrix")
 plt.plot(time[x_beg:x_end], P[x_beg:x_end]);
 #leg = []
