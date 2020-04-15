@@ -1,2 +1,6 @@
+KERNEL_PATH?=../linux-5.6.4
 all:
-	gcc tlm.c -I ~/work/linux-4.11-rc2/drivers/cpufreq/ -o tlm
+	gcc tlm.c -I $(KERNEL_PATH)/drivers/cpufreq/ -o tlm
+
+clean:
+	rm tlm
