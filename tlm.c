@@ -173,7 +173,7 @@ int main(int argc, char *argv[])
           printf("Missed samples:\t\t%d\n\n", tlm.data_lost);
 
           printf("%s\t\t","ts_sec");
-          printf("%s\t","ts_usec");
+          printf("%s\t","ts_nsec");
           for (i = 0; labelsDef[i]; i++)
           {
             printf("%s\t", labelsDef[i]);
@@ -187,7 +187,7 @@ int main(int argc, char *argv[])
           printf("\n");
 
           for (i = 0; i<numel; i++) {
-            printf("%lld\t%d\t", tlm.data[i].ts_sec, tlm.data[i].ts_usec);
+            printf("%lld\t%ld\t", tlm.data[i].ts_sec, tlm.data[i].ts_nsec);
             print_sample(tlm.data + i, "\t", 1);
             printf("\n");
           }
@@ -197,14 +197,14 @@ int main(int argc, char *argv[])
 
           if (labels) {
             printf("%s,","ts_sec");
-            printf("%s","ts_usec");
+            printf("%s","ts_nsec");
             for (i = 0; labelsDef[i]; i++)
               printf(",%s", labelsDef[i]);
             printf("\n");
           }
 
           for (i = 0; i<numel; i++){
-            printf("%lld;%d;", tlm.data[i].ts_sec, tlm.data[i].ts_usec);
+            printf("%lld;%ld;", tlm.data[i].ts_sec, tlm.data[i].ts_nsec);
             print_sample(tlm.data + i, ";", 0);
             printf("\n");
           }

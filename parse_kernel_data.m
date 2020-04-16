@@ -17,7 +17,7 @@ function [time, y, y_est, uc, u, v,...
     lines = get_lines(path);
     for i = 1:numel(lines)
         line = get_line_vectors(lines(i));
-        time = [time; double(line(1)) + double(line(2))/1000000];
+        time = [time; double(line(1)) + double(line(2))/1000000000];
         y = [y; double(line(4))];
         y_est = [y_est; double(line(5))];
         uc = [uc; double(line(6))];
