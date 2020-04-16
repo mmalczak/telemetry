@@ -178,11 +178,11 @@ int main(int argc, char *argv[])
           {
             printf("%s\t", labelsDef[i]);
             int j;
-            if(!strcmp("theta", labelsDef[i])) for(j=0; j<deg; j++)printf("\t");
-            if(!strcmp("R", labelsDef[i])) for(j=0; j<d_R+1; j++)printf("\t");
-            if(!strcmp("S", labelsDef[i])) for(j=0; j<d_S+1; j++)printf("\t");
-            if(!strcmp("T", labelsDef[i])) for(j=0; j<d_T+1; j++)printf("\t");
-            if(!strcmp("D", labelsDef[i])) for(j=0; j<d_D+1; j++)printf("\t");
+            if(!strcmp("theta", labelsDef[i])) for(j=0; j<deg-1; j++)printf("\t");
+            if(!strcmp("R", labelsDef[i])) for(j=0; j<d_R; j++)printf("\t");
+            if(!strcmp("S", labelsDef[i])) for(j=0; j<d_S; j++)printf("\t");
+            if(!strcmp("T", labelsDef[i])) for(j=0; j<d_T; j++)printf("\t");
+            if(!strcmp("D", labelsDef[i])) for(j=0; j<d_D; j++)printf("\t");
           }
           printf("\n");
 
