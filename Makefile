@@ -3,4 +3,4 @@ all:
 	gcc tlm.c -I $(KERNEL_PATH)/drivers/cpufreq/ -o tlm
 
 clean:
-	rm tlm
+	rm -f tlm
