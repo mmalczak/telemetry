@@ -35,7 +35,7 @@ with open("data.txt") as f:
 
     for line in lines:
         line_split = line.split(";")
-        time.append(float(line_split[0]) + float(line_split[1]) / 1000000)
+        time.append(float(line_split[0]) + float(line_split[1]) / 1000000000)
         load.append(float(line_split[3]))
         load_est.append(float(line_split[4]))
         uc.append(float(line_split[5]))
