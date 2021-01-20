@@ -1,4 +1,4 @@
-KERNEL_PATH?=../linux-5.3.1
+KERNEL_PATH?=../linux-[0-9].[0-9].[0-9]
 all:
 	gcc tlm.c -I $(KERNEL_PATH)/drivers/cpufreq/ -o tlm
 
